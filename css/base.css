@@ -1,14 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-
-:root{
-    --cor-primaria:#455A64;
-    --cor-secundaria:#90A4AE;
+:root {
+    --cor-primaria: #311B92;
+    --cor-secundaria: black;
 }
 
-*{
+/* CSS RESET */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:"Quicksand",sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    
+}
+
+table.table {
+    box-shadow: 0 0 10px 0 rgba(173, 62, 62, 0.82);
+}
+
+table.table>thead>tr th {
+    background-color: #eee;
+}
+
+button.btn{
+    min-width: 80px;
+}
+
+/* Override */
+/* div.modal-dialog{
+    max-width: 700px;
+} */
+
+
+#loading{
+    display: none;
+}
+.grupo{
+    color: #4A148C;
+}
+#collapsibleNavbar{
+    display: flex;
+}
+.sairSistem{
+    margin-left: auto;
+    font-style: italic;
+
+}
+.jogo{
+margin-left: 200px;
+font-style: oblique;
+
+}
+.jogadores{
+    margin-left: 200px;
+    font-style: oblique;
+    font-size: medium;
+}
+
+.navbar-brand{
+    margin-left: 120px;
+    font-style: oblique;
+    text-decoration: overline;
+    
+}
+.alert .alert-danger{
+    display: none;
 }

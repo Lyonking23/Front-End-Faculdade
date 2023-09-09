@@ -1,54 +1,75 @@
-let email = document.getElementById ('email');
-let senha = document.getElementById ('senha');
-let btnEntar = document.getElementById ('btn-entrar');
+// Capturando os 3 campos da tela.
+let email = document.getElementById('email');
+let senha = document.getElementById('senha');
+let btnEntrar = document.getElementById('btn-entrar');
 
 
-btnEntar.addEventListener(
-    "click", () => {
-        let userEmail = email.value;
-        let userSenha = senha.value;
+// Aqui capturo o evento de click para tomar uma ação qualquer
+btnEntrar.addEventListener('click', () => {
 
-        if(!userEmail  || !userSenha ){
+    // 1° Pegar o email digitado
+    let userEmail = email.value;
 
-alert ("os campos de email é senha são obrigatorios");
-return;
-        }
-        
-        autenticar (userEmail, userSenha);
-       
+    // 2° Pegar a senha digitada.
+    let userSenha = senha.value;
+
+    // 3° Validar se o email e senha estão corretos
+
+    if(!userEmail || !userSenha){
+        // 4° Caso esteja incorreto, mandar mensagem de usuario ou senha invalida.
+        Swal.fire({
+            icon: 'error',
+            text: 'Os campos de e-mail e senha são obrigatórios!'
+        });
+
+        // alert("Os campos de e-mail e senha são obrigatórios!");
+        return;
     }
-);
 
-function autenticar(email, senha) {
-    const urlBase = 'http://localhost:3400';
+    // Aqui precisamos enviar esse email e senha ao backend para saber se o usuario pode acessar o sistema.
+    autenticar(userEmail, userSenha);
+});
 
-    fetch (`${urlBase}/login`,{
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
+
+function autenticar(email, senha){
+   const urlBase = `http://localhost:3400`;
+
+   fetch(`${urlBase}/login`, {
+    method:'POST',
+    headers:{
+        'Content-Type': 'application/json'
     },
     body: JSON.stringify({email, senha})
-})
- .then(response => response = response.json())
+   })
+   .then(response => response = response.json())
+   .then(response => {
 
- .then(response => {
-    if(!!response.mensagem) {
-        alert (response.mensagem);
+       if(!!response.mensagem){
+        alert(response.mensagem);
         return;
-    }else {
-        alert ('usuario autenticado com sucesso');
 
+       }else{
+
+        
         salvarToken(response.token);
         salvarUsuario(response.usuario);
+        
+        // Aqui vou esconder a tela de login e carregar o loading..
+      //  mostrarLoading();
 
-        window.open('clientes.html','_self')
-    }
- })
+        setTimeout(() =>{
+            window.open('controle-cliente.html', '_self');
+        }, 5000)
+        
+       }
+    });
 }
 
-function salvarToken(token){
-    localStorage.setItem('token', token)
-}
-function salvarUsuario(usuario){
-    localStorage.setItem('usuario', JSON.stringify(usuario));
-}
+
+//function mostrarLoading(){
+   // const divLoading = document.querySelector('#loading');
+   // divLoading.style.display='block';
+
+   // const divBoxlogin = document.querySelector('div.caixa-login')
+   // divBoxlogin.style.display = 'none';
+//}

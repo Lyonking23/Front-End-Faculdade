@@ -1,0 +1,79 @@
+/*
+    TAG (button, body, input)
+
+    Classe (.titulo .grupo)
+
+    Id (#btn-entrar)
+
+    Seletor (Tudo junto e misturado)
+
+*/
+body {
+
+ height: 100vh;
+    background-size: 100% 100%;
+    background-image: url(https://s2-g1.glbimg.com/CEWmFwZUmtY3qOfTIjMt4i6U_Io=/0x0:828x466/984x0/smart/filters:strip_icc/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2023/R/z/cMP34wTJKL9L3GQ8SblA/zombie-the-last-of-us.jpg);
+}
+.grupo {
+    margin-top: 10px;
+    color: #FAFAFA;
+}
+
+.caixa-login {
+    width: 300px;
+    height: auto;
+    border: 2px solid #FAFAFA;
+    margin: auto;
+    margin-top: 80px;
+    padding: 30px;
+    border-radius:20px;
+}
+
+.titulo-login{
+    text-align: center;
+    color: var(--cor-primaria);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 12px;
+}
+
+input, 
+#btn-entrar {
+    padding: 8px;
+    width: 100%;
+    border-radius: 2px;
+    border: 2px solid #FAFAFA;
+    outline: none;
+}
+
+#btn-entrar {
+    margin-top: 10px;
+    background-color: var(--cor-primaria);
+    border: none;
+    color: #FAFAFA;
+    font-weight: 600;
+}
+
+#btn-entrar:hover {
+    cursor: pointer;
+    background-color: var(--cor-secundaria);
+}
+
+
+.esqueci-minha-senha {
+    text-align: right;
+    font-style: italic;
+    margin-top: 3px;
+    color: #FAFAFA;
+}
+
+.esqueci-minha-senha a {
+    color:var(#FAFAFA);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+}
